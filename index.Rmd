@@ -8,19 +8,26 @@ output:
 ---
 
 
-## Project thoughts
+## Project thoughts: Milestone 1
 
-I am interested in exploring data related to Presidential Elections and Residential Mortgage Performance. Politicians eagerly use the health of the mortgage market and the overall economy as an indicator of party performance. This party performance becomes an important voting issue during elections. My project will ask whether Mortgage performance trends has a relationship with Presidential elections.
+I am interested in exploring data related to Presidential Elections and Residential Mortgage Performance. Politicians eagerly use the health of the mortgage market and the overall economy as an indicator of party performance. This party performance becomes an important voting issue during elections for constituents. My project will ask whether Mortgage performance has a relationship with Presidential elections.
 
 To investigate this relationship, we are relying on data from two different sources:
 
 1. [U.S. President Election Data 1976-2020](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX) This data file contains constituency (state-level) returns for elections to the U.S. presidency from 1976 to 2020;
 
-2. [Residential Mortgage Performance Statistics](https://www.fhfa.gov/DataTools/Downloads/Pages/National-Mortgage-Database-Aggregate-Data.aspx) This data file contains a nationally representative five percent sample of residential mortgages in the United States
+2. [Residential Mortgage Performance Statistics](https://www.fhfa.gov/DataTools/Downloads/Pages/National-Mortgage-Database-Aggregate-Data.aspx) This data file contains a nationally representative five percent sample of residential mortgages in the United States from 2002-2022.
 
 The Election data provides us with our outcome variable, the residential mortgage performance (along All Geographic Areas, States, 100 Metro Areas, and National, Census Regions, and Census Divisions) acts as the explanatory variable.
 
 
+Another possible Independent Variable:
+Fannie Mae Single-Family Loan Performance Data
+https://capitalmarkets.fanniemae.com/credit-risk-transfer/single-family-credit-risk-transfer/fannie-mae-single-family-loan-performance-data
 
 
+
+## Project thoughts: Milestone 2
+
+Is there a relationship between Residential Mortgage Performance and U.S Presidential Elections? Can mortgage trends predict an incumbents chances at re-election? In this study, I plan to examine whether there is a relationship between Mortgage Performance and U.S Presidential Elections. I hypothesize that the healthier the mortgage market is the higher a presidential candidates re-election chances. My sample is comprised of constituency (state-level) returns for elections to the U.S. presidency from 1976 to 2020 and a nationally representative five percent sample of residential mortgages in the United States (along All Geographic Areas, States, 100 Metro Areas, and National, Census Regions, and Census Divisions) from 2002-2022. My unit of analysis is the 2022 Presidential Election. The explanatory variable of interest is mortgage performance by state measured by its "value." My outcome variable is the U.S presidential election, specifically whether an incumbent is re-elected. If I observe greater re-election success during periods of a healthier mortgage market, that will support my hypothesis. If, on the other hand I observe  re-election success regardless of Mortgage trends, then that will go against my hypothesis that the variables are correlated.When I run my regression of the re-election changes on the mortgage performance indicator variable, a positive, significant coefficient would indicate support for my hypothesis.
 
