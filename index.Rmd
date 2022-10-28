@@ -1,7 +1,7 @@
 ---
-title: "117th U.S Congress & Member Ideology"
+title: "U.S Presidential Elections & Mortgage Performance"
 author: "Osazi AL KHaliq"
-description: "How responsive is the 117th U.S Congress to the districts/states it represents?"
+description: "Is their a relationship between the mortgage market and U.S Presidential Elections?"
 output:
   distill::distill_article:
     self_contained: false

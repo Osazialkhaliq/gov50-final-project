@@ -1,7 +1,7 @@
 ---
-title: "117th U.S Congress & Member Ideology"
+title: "U.S Presidential Elections & Mortgage Performance"
 author: "Osazi AL KHaliq"
-description: "How responsive is the 117th U.S Congress to the districts/states it represents?"
+description: "Is their a relationship between the mortgage market and U.S Presidential Elections?"
 output:
   distill::distill_article:
     self_contained: false
@@ -19,4 +19,8 @@ To investigate this relationship, we are relying on data from two different sour
 2. [Residential Mortgage Performance Statistics](https://www.fhfa.gov/DataTools/Downloads/Pages/National-Mortgage-Database-Aggregate-Data.aspx) This data file contains a nationally representative five percent sample of residential mortgages in the United States
 
 The Election data provides us with our outcome variable, the residential mortgage performance (along All Geographic Areas, States, 100 Metro Areas, and National, Census Regions, and Census Divisions) acts as the explanatory variable.
+
+
+
+
 
