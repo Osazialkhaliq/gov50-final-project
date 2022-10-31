@@ -21,6 +21,10 @@ To investigate this relationship, we are relying on data from two different sour
 The Election data provides us with our outcome variable, the residential mortgage performance (along All Geographic Areas, States, 100 Metro Areas, and National, Census Regions, and Census Divisions) acts as the explanatory variable.
 
 
+## Project thoughts Cont'd
+
+Does 
+
 
 
 
