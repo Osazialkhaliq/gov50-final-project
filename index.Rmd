@@ -103,3 +103,48 @@ ggplot(vote_data_d) +
               slope = mod2_party$coefficients[2],
               color="blue3")
 ```
+  From looking at the scatter plot, we find that there is a generally positive correlation between district ideology and voter behavior. However, as evidenced by the gap in voting behavior by moderates within both parties, it seems that this relationship appears much weaker within the parties. 
+  
+
+
+REGRESSION 1: 
+
+
+
+```{r, echo = FALSE}
+library(jtools)
+#creating regression model
+mod1_ideo <- lm(nominate_dim1 ~ Dpres_1220, vote_data_d)
+#Displaying results
+summ(mod1_ideo)
+
+```
+
+
+
+REGRESSION ANALYSIS:
+
+  The intercept in the model can be interpreted as predicting a 1.31 DW-NOMINATE score for a representative in a district that had an average Democratic presidential vote share of 0%.The coefficient on Dpres_1220 predicts -2.40 decrease in DW-NOMINATE score (much more liberal) with a one unit, 0% to 100%, increase in Democratic presidential vote share. In other words, this is equivalent to a .024 decrease in DW-NOMINATE score for a one percentage point increase in Democratic presidential vote share. The Dpres_1220 coefficient is statistically significant, as the p-value is less than 0.05, so we can reject the null that the true coefficient is equal to zero.Within this regression, there is substantive significance. While the theoretical range of Republican presidential vote share is 0 to 1, the observed range is 0.070 to .814. Similarly, while the range of DW-NOMINATE is -1 to 1 the observed range is -0.831 to 0.936.
+
+
+
+REGRESSION 2:
+
+
+
+```{r, echo = FALSE}
+#creating regression model
+mod2_party <- lm(nominate_dim1 ~ Dpres_1220 + democrat, vote_data_d)
+#Displaying results
+summ(mod2_party)
+```
+
+
+
+MULTIPLE REGRESSION ANALYSIS:
+
+   In the regression model the expected DW-NOMINATE of a Republican member of congress (democrat=1) in a district with 0% Democratic presidential vote share is 0.754.The coefficient on Dpres_1220 means that a one percentage point change in district ideology is associated with a -0.00644 decrease in DW-NOMINATE, holding party constant.The coefficient on democrat means that a change from Republican to Democrat, holding district ideology constant, is associated with a -0.714 decrease in DW-NOMINATE score. Both coefficients are statistically significant as the p-values are below 0.05. There is also evidence for substantive significance, using similar reasoning from the first regression. 
+   
+CONCLUSION:
+
+  In the results, we found evidence for there being a strong, positive relationship between DW-NOMINATE Score by District Democratic Presidential Vote Share. This correlation was evidenced through multiple regressions of both variables which found not only statistical but substantive significance. There was no casual relationship found in any of the results, as regressions speak to correlation not causality. The coefficient on democrat meant that a change from Republican to Democrat, holding district ideology constant, is associated with a -0.714 decrease in DW-NOMINATE score. Realistically, this result can suggest that voting behavior is seemingly influenced not solely by member ideology but by the party the belong too. As such this provides evidence that parties are not simply labels for like-minded members but organizations that hold power and can convince members of congress to change their vote, perhaps in ways that advance the party's goals. However, this study is also limited. This study used DW-NOMINATE scores of every member of congress to measure their ideological positions. DW-NOMINATE scores are calculate based on roll-call votes. However, a con of using DW Nominate Scores is that we dont know how much roll calls are influenced by log rolling or personal preferences. This is a serious issue because it questions whether whether DW-NOMINATE scores represent ideology, partisanship, or something else. Ideally, having data which clarifies exactly when log rolling occurs would significantly improve my analysis. Even so, without this data isn't available, DW-NOMINATE scores still represents one of the most widely used measures to describe political ideology.
