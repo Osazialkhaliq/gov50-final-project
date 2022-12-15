@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["Alkhaliq_Final.html","Alkhaliq_Final_files/anchor-4.2.2/anchor.min.js","Alkhaliq_Final_files/bowser-1.9.3/bowser.min.js","Alkhaliq_Final_files/distill-2.2.21/template.v2.js","Alkhaliq_Final_files/figure-html5/unnamed-chunk-3-1.png","Alkhaliq_Final_files/figure-html5/unnamed-chunk-4-1.png","Alkhaliq_Final_files/header-attrs-2.18/header-attrs.js","Alkhaliq_Final_files/jquery-3.6.0/jquery-3.6.0.js","Alkhaliq_Final_files/jquery-3.6.0/jquery-3.6.0.min.js","Alkhaliq_Final_files/jquery-3.6.0/jquery-3.6.0.min.map","Alkhaliq_Final_files/popper-2.6.0/popper.min.js","Alkhaliq_Final_files/tippy-6.2.7/tippy-bundle.umd.min.js","Alkhaliq_Final_files/tippy-6.2.7/tippy-light-border.css","Alkhaliq_Final_files/tippy-6.2.7/tippy.css","Alkhaliq_Final_files/tippy-6.2.7/tippy.umd.min.js","Alkhaliq_Final_files/webcomponents-2.0.0/webcomponents.js","ex3.dta","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-4-1.png","index_files/header-attrs-2.16/header-attrs.js","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["Alkhaliq_Final.html","Alkhaliq_Final_files/anchor-4.2.2/anchor.min.js","Alkhaliq_Final_files/bowser-1.9.3/bowser.min.js","Alkhaliq_Final_files/distill-2.2.21/template.v2.js","Alkhaliq_Final_files/figure-html5/unnamed-chunk-3-1.png","Alkhaliq_Final_files/figure-html5/unnamed-chunk-4-1.png","Alkhaliq_Final_files/header-attrs-2.18/header-attrs.js","Alkhaliq_Final_files/jquery-3.6.0/jquery-3.6.0.js","Alkhaliq_Final_files/jquery-3.6.0/jquery-3.6.0.min.js","Alkhaliq_Final_files/jquery-3.6.0/jquery-3.6.0.min.map","Alkhaliq_Final_files/popper-2.6.0/popper.min.js","Alkhaliq_Final_files/tippy-6.2.7/tippy-bundle.umd.min.js","Alkhaliq_Final_files/tippy-6.2.7/tippy-light-border.css","Alkhaliq_Final_files/tippy-6.2.7/tippy.css","Alkhaliq_Final_files/tippy-6.2.7/tippy.umd.min.js","Alkhaliq_Final_files/webcomponents-2.0.0/webcomponents.js","ex3.dta","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-4-1.png","index_files/header-attrs-2.16/header-attrs.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.18/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1551,6 +1551,274 @@ In this study, district ideology is measured using presidential vote share in th
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="index_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
+<p>From looking at the scatter plot, we find that there is a generally positive correlation between district ideology and voter behavior. However, as evidenced by the gap in voting behavior by moderates within both parties, it seems that this relationship appears much weaker within the parties.</p>
+<p>REGRESSION 1:</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Observations
+</td>
+<td style="text-align:right;">
+444 (1 missing obs. deleted)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Dependent variable
+</td>
+<td style="text-align:right;">
+nominate_dim1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Type
+</td>
+<td style="text-align:right;">
+OLS linear regression
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+F(1,442)
+</td>
+<td style="text-align:right;">
+1177.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+R²
+</td>
+<td style="text-align:right;">
+0.73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Adj. R²
+</td>
+<td style="text-align:right;">
+0.73
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Est.
+</th>
+<th style="text-align:right;">
+S.E.
+</th>
+<th style="text-align:right;">
+t val.
+</th>
+<th style="text-align:right;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+1.31
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+34.15
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Dpres_1220
+</td>
+<td style="text-align:right;">
+-2.40
+</td>
+<td style="text-align:right;">
+0.07
+</td>
+<td style="text-align:right;">
+-34.31
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> Standard errors: OLS
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<p>REGRESSION ANALYSIS:</p>
+<p>The intercept in the model can be interpreted as predicting a 1.31 DW-NOMINATE score for a representative in a district that had an average Democratic presidential vote share of 0%.The coefficient on Dpres_1220 predicts -2.40 decrease in DW-NOMINATE score (much more liberal) with a one unit, 0% to 100%, increase in Democratic presidential vote share. In other words, this is equivalent to a .024 decrease in DW-NOMINATE score for a one percentage point increase in Democratic presidential vote share. The Dpres_1220 coefficient is statistically significant, as the p-value is less than 0.05, so we can reject the null that the true coefficient is equal to zero.Within this regression, there is substantive significance. While the theoretical range of Republican presidential vote share is 0 to 1, the observed range is 0.070 to .814. Similarly, while the range of DW-NOMINATE is -1 to 1 the observed range is -0.831 to 0.936.</p>
+<p>REGRESSION 2:</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Observations
+</td>
+<td style="text-align:right;">
+444 (1 missing obs. deleted)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Dependent variable
+</td>
+<td style="text-align:right;">
+nominate_dim1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Type
+</td>
+<td style="text-align:right;">
+OLS linear regression
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+F(2,441)
+</td>
+<td style="text-align:right;">
+3098.96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+R²
+</td>
+<td style="text-align:right;">
+0.93
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Adj. R²
+</td>
+<td style="text-align:right;">
+0.93
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Est.
+</th>
+<th style="text-align:right;">
+S.E.
+</th>
+<th style="text-align:right;">
+t val.
+</th>
+<th style="text-align:right;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+31.32
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Dpres_1220
+</td>
+<td style="text-align:right;">
+-0.64
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+-11.02
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+democrat
+</td>
+<td style="text-align:right;">
+-0.71
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+-37.03
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> Standard errors: OLS
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<p>MULTIPLE REGRESSION ANALYSIS:</p>
+<p>In the regression model the expected DW-NOMINATE of a Republican member of congress (democrat=1) in a district with 0% Democratic presidential vote share is 0.754.The coefficient on Dpres_1220 means that a one percentage point change in district ideology is associated with a -0.00644 decrease in DW-NOMINATE, holding party constant.The coefficient on democrat means that a change from Republican to Democrat, holding district ideology constant, is associated with a -0.714 decrease in DW-NOMINATE score. Both coefficients are statistically significant as the p-values are below 0.05. There is also evidence for substantive significance, using similar reasoning from the first regression.</p>
+<p>CONCLUSION:</p>
+<p>In the results, we found evidence for there being a strong, positive relationship between DW-NOMINATE Score by District Democratic Presidential Vote Share. This correlation was evidenced through multiple regressions of both variables which found not only statistical but substantive significance. There was no casual relationship found in any of the results, as regressions speak to correlation not causality. The coefficient on democrat meant that a change from Republican to Democrat, holding district ideology constant, is associated with a -0.714 decrease in DW-NOMINATE score. Realistically, this result can suggest that voting behavior is seemingly influenced not solely by member ideology but by the party the belong too. As such this provides evidence that parties are not simply labels for like-minded members but organizations that hold power and can convince members of congress to change their vote, perhaps in ways that advance the party’s goals. However, this study is also limited. This study used DW-NOMINATE scores of every member of congress to measure their ideological positions. DW-NOMINATE scores are calculate based on roll-call votes. However, a con of using DW Nominate Scores is that we dont know how much roll calls are influenced by log rolling or personal preferences. This is a serious issue because it questions whether whether DW-NOMINATE scores represent ideology, partisanship, or something else. Ideally, having data which clarifies exactly when log rolling occurs would significantly improve my analysis. Even so, without this data isn’t available, DW-NOMINATE scores still represents one of the most widely used measures to describe political ideology.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
