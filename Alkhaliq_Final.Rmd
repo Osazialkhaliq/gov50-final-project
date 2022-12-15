@@ -1,29 +1,111 @@
 ---
-title: "U.S Presidential Elections & Mortgage Performance"
+title: "Do Political Parties Matter?"
 author: "Osazi AL KHaliq"
-description: "Is their a relationship between the mortgage market and U.S Presidential Elections?"
+description: "Study analyzes the relationship between a the ideology of a districts member of congress and the districts average presidential vote share"
 output:
   distill::distill_article:
     self_contained: false
 ---
 
+##Introduction
+  Today, if you were to ask an average individual whether political parties within the U.S have outsized influence on elections, they would most likely answer in the affirmative. In a political climate driven by fierce polarization and cultural differences, its hard to not give responsibility to political parties for the state of our current political environment. And yet, interestingly enough, there has existed (and continues to exist) debate among congressional scholars concerning the extent to which parties matter in the U.S. Congress, assuming of course that they do. To the average person, it might seem obvious that parties matter, as the partisan line so often divides members into the “yeas” and “nays.”However, as Krehbiel (1993) notes, “In casting apparently partisan votes, do individual legislators vote with fellow party members in spite of their disagreement about the policy in question, or do they vote with fellow party members because of their agreement about the policy question?” In other words, if the party is a useful indicator of members’ true preferences, they might simply be exercising these preferences when they vote along party lines. In this case, the party is merely a label that is correlated with legislators’ preferences rather than an organization that influences and disciplines its membership. This study questions, Which is stronger in determining how a member votes: his/her party or his/her constituents? I hypothesize that there exist a strong, positive relationship between both variables in this study, supporting the argument that parties do matter within the U.S Congress. 
+  
+##Data
+    There will be one data sources used within this study, “vote_data.” This data set will be used to provide the first dimension DW-NOMINATE scores of every member of congress which will be used to measure their ideological positions. DW-NOMINATE scores are used in this study because they act as a measure of members’ ideological position based on roll-call votes. They are created for each member by collapsing down every roll-call vote a member takes and seeing how often a member takes a liberal position on a bill versus how often a member takes a conservative position on a bill. A lower score indicates a more liberal member, and a higher score indicates a more conservative member (the scores generally range from -1 to 1). 
+    In this study, district ideology is measured using presidential vote share in the district. Specifically, each district’s average Democratic vote share from the 2012, 2016, and 2020 Presidential elections. The dependent variable in this analysis will be each member’s DW-NOMINATE score (dimension 1). The goal of this study is to figure out how well the explanatory variables (the district’s ideology and the member’s political party) predict it. THe research design for this study is cross-sectional. 
+  
+  The variables included in the data set for this study are:
+  
+•district code — Congressional district number
+•state abbrev — State abbreviation
+•party code — Member’s party (Democrat =100 and Republican =200)
+•bioname — Name of member
+•nominate dim1 — First dimension of DW-NOMINATE
+•nominate dim2 — Second dimension of DW-NOMINATE
+•Biden20 — Biden’s district vote share in 2020
+•Trump20 — Trump’s district vote share in 2020
+•Clinton16 — Clinton’s district vote share in 2016
+•Trump16 — Trump’s district vote share in 2016
+•Obama12 — Obama’s district vote share in 2012
+•Romney12 — Romney’s district vote share in 2012
+  
+```{r setup, echo = FALSE}
+#Loading in data
+ex3 <- read_dta("ex3.dta")
 
-## Project thoughts
+#Creating republican variable with ifelse
+vote_data <- vote_data <- ex3 %>% 
+  mutate(democrat=ifelse(party_code==100,1,0))
+vote_data
+```
 
-I am interested in exploring data related to Presidential Elections and Residential Mortgage Performance. Politicians eagerly use the health of the mortgage market and the overall economy as an indicator of party performance. This party performance becomes an important voting issue during elections. My project will ask whether Mortgage performance trends has a relationship with Presidential elections.
+```{r setup, echo = FALSE}
+#Calculating Dpres_1220 within one mutate command
+vote_data_d <- vote_data %>% 
+  mutate(Dpres_1220=(Obama12/(Obama12+Romney12) +
+           Clinton16/(Clinton16+Trump16) +
+             Biden20/(Biden20+Trump20))/3)
+summary(vote_data_d)
+```
+ 
+##Results
+```{r}
+ggplot(vote_data_d) +
+  #Creating scatterplot
+  geom_point(aes(x=Dpres_1220, y=nominate_dim1,
+                label=ifelse(democrat==0,"D","R"),
+                color=factor(democrat))) + 
+  #Labels
+  labs(title = "DW-NOMINATE Score by District Democratic Presidential Vote Share",
+       x="Average Democratic Two Party Presidential Vote Share (2012-2020)",
+       y="DW-NOMINATE 1st Dimension") +
+  #Legend labels and colors
+  scale_color_manual(values=c("darkred","darkblue"),
+                     labels=c("Republican","Democrat"),
+                     name="Party") +
+  #Democrat regression line
+  geom_abline(intercept = mod2_party$coefficients[1],
+              slope = mod2_party$coefficients[2],
+              color="blue3") +
+  #Republican regression line
+  geom_abline(intercept = sum(mod2_party$coefficients[c(1,3)]),
+              slope = mod2_party$coefficients[2],
+              color="red3")
+```
+  From looking at the scatter plot, we find that there is a generally positive correlation between district ideology and voter behavior. However, as evidenced by the gap in voting behavior by moderates within both parties, it seems that this relationship appears much weaker within the parties. 
+  
+  
+```{r}
+library(jtools)
+#creating regression model
+mod1_ideo <- lm(nominate_dim1 ~ Dpres_1220, vote_data_d)
+#Displaying results
+summary(mod1_ideo)
+summ(mod1_ideo)
 
-To investigate this relationship, we are relying on data from two different sources:
+max(vote_data_d$Rpres_1220)
+min(vote_data_d$Rpres_1220)
 
-1. [U.S. President Election Data 1976-2020](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX) This data file contains constituency (state-level) returns for elections to the U.S. presidency from 1976 to 2020;
+max(vote_data_d$nominate_dim1, na.rm = TRUE)
+min(vote_data_d$nominate_dim1, na.rm = TRUE)
 
-2. [Residential Mortgage Performance Statistics](https://www.fhfa.gov/DataTools/Downloads/Pages/National-Mortgage-Database-Aggregate-Data.aspx) This data file contains a nationally representative five percent sample of residential mortgages in the United States
+```
+##Regression Analysis
+  The intercept in the model can be interpreted as predicting a 1.31 DW-NOMINATE score for a representative in a district that had an average Democratic presidential vote share of 0%.The coefficient on Dpres_1220 predicts -2.40 decrease in DW-NOMINATE score (much more liberal) with a one unit, 0% to 100%, increase in Democratic presidential vote share. In other words, this is equivalent to a .024 decrease in DW-NOMINATE score for a one percentage point increase in Democratic presidential vote share. The Dpres_1220 coefficient is statistically significant, as the p-value is less than 0.05, so we can reject the null that the true coefficient is equal to zero.Within this regression, there is substantive significance. While the theoretical range of Republican presidential vote share is 0 to 1, the observed range is 0.070 to .814. Similarly, while the range of DW-NOMINATE is -1 to 1 the observed range is -0.831 to 0.936.
 
-The Election data provides us with our outcome variable, the residential mortgage performance (along All Geographic Areas, States, 100 Metro Areas, and National, Census Regions, and Census Divisions) acts as the explanatory variable.
 
-
-## Project thoughts Cont'd
-
-Does 
+```{r}
+#creating regression model
+mod2_party <- lm(nominate_dim1 ~ Dpres_1220 + democrat, vote_data_d)
+#Displaying results
+summary(mod2_party)
+summ(mod2_party)
+```
+##Multiple Regression Analysis
+   In the regression model the expected DW-NOMINATE of a Republican member of congress (democrat=1) in a district with 0% Democratic presidential vote share is 0.754.The coefficient on Dpres_1220 means that a one percentage point change in district ideology is associated with a -0.00644 decrease in DW-NOMINATE, holding party constant.The coefficient on democrat means that a change from Republican to Democrat, holding district ideology constant, is associated with a -0.714 decrease in DW-NOMINATE score. Both coefficients are statistically significant as the p-values are below 0.05. There is also evidence for substantive significance, using similar reasoning from the first regression. 
+   
+##Conclusion
+  In the results, we found evidence for there being a strong, positive relationship between DW-NOMINATE Score by District Democratic Presidential Vote Share. This was evidenced through multiple regressions of both varibles which found not only statistical but substantive significance. The coefficient on democrat means that a change from Republican to Democrat, holding district ideology constant, is associated with a -0.714 decrease in DW-NOMINATE score. Realistically, this result can suggest that voting behavior is seemingly influenced not solely by member ideology but by the party the belong too. As such this provides evidence that parties are not simply labels for like-minded members but organizations that hold power and can convince members of congress to change their vote, perhaps in ways that advance the party's goals. However, this study is also limited. This study used DW-NOMINATE scores of every member of congress to measure their ideological positions. DW-NOMINATE scores are calculate based on roll-call votes. However, a con of using DW Nominate Scores is that we dont know how much roll calls are influenced by log rolling or personal preferences. This is a serious issue because it questions whether whether DW-NOMINATE scores represent ideology, partisanship, or something else. Ideally, having data which clarifies exactly when log rolling occurs would significantly improve my analysis. Even so, without this data isn't available, DW-NOMINATE scores still represents one of the most widely used measures to describe political ideology.
 
 
 
